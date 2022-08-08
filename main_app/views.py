@@ -1,29 +1,33 @@
 from django.shortcuts import render
-
-from django.http import HttpResponse
-
-# Add the Cat class & list and view function below the imports
-class Canine:  # Note that parens are optional if not inheriting from another class
-  def __init__(self, name, breed, description, age):
-    self.name = name
-    self.breed = breed
-    self.description = description
-    self.age = age
-
-canines = [
-  Canine('Snow', 'Samoyed', 'Big White Fluffer', 4),
-  Canine('Loki', 'Siberian Husky', 'Boundlessly Energetic', 0),
-  Canine('Odin', 'Golden Retreiver', 'Man\'s Best Friend', 7)
-]
-
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Canine
 
 # Create your views here.
 def home(request):
-  return HttpResponse('<h1>Welcome to the Home Page</h1>')
+  return render(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')
 
   # Add new view
 def canines_index(request):
-  return render(request, 'canines/index.html', { 'canines': canines })
+    canines = Canine.objects.all()
+    return render(request, 'canines/index.html', { 'canines': canines })
+
+def canines_detail(request, canine_id):
+    canine = Canine.objects.get(id=canine_id)
+    return render(request, 'canines/detail.html', { 'canine': canine })
+
+class CanineCreate(CreateView):
+  model = Canine
+  fields = '__all__'
+  # success_url = '/cats/'
+
+class CanineUpdate(UpdateView):
+  model = Canine
+  # Let's disallow the renaming of a cat by excluding the name field!
+  fields = ['breed', 'color', 'description', 'age']
+
+class CanineDelete(DeleteView):
+  model = Canine
+  success_url = '/canines/'

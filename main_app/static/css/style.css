@@ -2,14 +2,100 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
-  
-  main {
+    background-image: url('https://i.imgur.com/FWnyKfT.jpg')
+}
+
+h1 {
+    color: whitesmoke
+}
+
+main {
     flex: 1 0 auto;
-  }
-  
-  footer.page-footer {
+}
+
+footer.page-footer {
     padding-top: 0;
     text-align: right;
+}
+
+div.nav-wrapper, footer.page-footer {
+    background-color: #632224
+}
+
+div.card-content, h1, #add-canine, label, article, section {
+    background-image: url('https://i.imgur.com/1JQcIsa.jpg');
+    color: whitesmoke;
+    text-align: center;
   }
-  
+
+footer {
+    color: whitesmoke
+}
+
+textarea {
+    border-color: grey;
+    outline: 0;
+    box-shadow: none;
+    color:whitesmoke
+}
+
+input {
+    border-color: whitesmoke;
+    outline: 0;
+    box-shadow: none;
+    color:whitesmoke
+}
+
+td:active {
+    outline:whitesmoke;
+}
+
+#edit-delete-btn, #cancel-btn {
+    color:whitesmoke
+}
+
+#edit-delete-btn:hover {
+    color:grey
+}
+
+#cancel-btn:hover {
+    color:grey
+}
+
+.btn {
+    background-color:#632224
+}
+
+.btn:hover {
+    background-color:grey
+}
+
+input#id_color:focus { 
+    outline: none !important;
+    border-color: #632224;
+    box-shadow: 0 0 10px grey;
+}
+
+input#id_breed:focus { 
+    outline: none !important;
+    border-color: #632224;
+    box-shadow: 0 0 10px grey;
+}
+
+input#id_age:focus { 
+    outline: none !important;
+    border-color: #632224;
+    box-shadow: 0 0 10px grey;
+}
+
+input#id_name:focus { 
+    outline: none !important;
+    border-color: #632224;
+    box-shadow: 0 0 10px grey;
+}
+
+textarea:focus { 
+    outline: none !important;
+    border-color: #632224;
+    box-shadow: 0 0 10px grey;
+}

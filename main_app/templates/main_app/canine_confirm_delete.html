@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete Canine</h1>
+
+  <section>
+    <h4>Are you sure you want to delete <span style="color:#632224">{{ object.name }}</span>?</h4>
+    
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Yes - Delete!" class="btn">
+      <a href="{% url 'detail' canine.id %}" id="cancel-btn">Cancel</a>
+    </form>
+  </section>
+{% endblock %}
