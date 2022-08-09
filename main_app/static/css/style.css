@@ -26,7 +26,33 @@ div.card-content, h1, #add-canine, label, article, section {
     background-image: url('https://i.imgur.com/1JQcIsa.jpg');
     color: whitesmoke;
     text-align: center;
-  }
+}
+
+.dropdown-content li>span {
+    color: whitesmoke;
+    background-color: #632224
+}
+
+div.datepicker-calendar-container {
+    background-color: black;
+    color: whitesmoke
+}
+
+div.datepicker-date-display {
+    background-color: #632224
+}
+
+.datepicker-date-display .year-text {
+    color: rgba(255,255,255,1)
+}
+
+.datepicker-table td.is-selected {
+    background-color: #632224
+}
+
+.datepicker-cancel, .datepicker-done {
+    color: #632224
+}
 
 footer {
     color: whitesmoke
