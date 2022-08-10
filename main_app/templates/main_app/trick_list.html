@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Trick List</h1>
+
+{% for trick in trick_list %}
+  <a href="{% url 'tricks_detail' trick.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ trick.name }}</span>
+            <p>Difficulty: {{ trick.difficulty }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}

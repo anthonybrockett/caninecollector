@@ -22,7 +22,7 @@ div.nav-wrapper, footer.page-footer {
     background-color: #632224
 }
 
-div.card-content, h1, #add-canine, label, article, section {
+div.card-content, h1, #add-canine, #add-trick, label, article, section {
     background-image: url('https://i.imgur.com/1JQcIsa.jpg');
     color: whitesmoke;
     text-align: center;

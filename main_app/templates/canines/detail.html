@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col s6">
             <div class="card">
-                <div class="card-content">
+                <div class="card-content" id="trick-card">
                     <span class="card-title">{{ canine.name }}</span>
                     <p>Breed: {{ canine.breed }}</p>
                     <p>Color: {{ canine.color }}</p>
@@ -44,6 +44,53 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <hr>
+    <div class="row">
+    <div class="col s6">
+        <h3>{{ canine.name }}'s Tricks</h3>
+        {% if canine.tricks.count %}
+        {% for trick in canine.tricks.all %}
+            <div class="card">
+            <div class="card-content" id="trick-card">
+                <span class="card-title">
+                <span>{{ trick.name }}</span> <br> Difficulty: {{ trick.difficulty }}
+                </span>
+                <div class="card-action">
+                    <form action="{% url 'disassoc_trick' canine.id trick.id %}" method="POST">
+                      {% csrf_token %}
+                      <button type="submit" class="btn">Delete</button>
+                    </form>
+                  </div>
+            </div>
+            </div>
+        {% endfor %}
+        {% else %}
+        <h5>No Tricks Yet</h5>
+        {% endif %}
+    </div>
+    <div class="col s6">
+        <h3>Available Tricks</h3>
+        {% if tricks.count %}
+          {% for trick in tricks.all %}
+            <div class="card">
+              <div class="card-content" id="trick-card">
+                <span class="card-title">
+                <span>{{ trick.name }}</span> <br> Difficulty: {{ trick.difficulty }}
+                </span>
+                <div class="card-action">
+                  <form action="{% url 'assoc_trick' canine.id trick.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Add</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <h5>{{canine.name}} Has Learned All Tricks Available</h5>
+        {% endif %}
+      </div>
     </div>
 
     <script>
